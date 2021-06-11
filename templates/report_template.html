@@ -1,0 +1,19 @@
+<ul>
+    {% for i in extra %}<li>{{ i.label}}: {{ i.val }}</li>{% endfor %}
+</ul>
+<table class="table">
+   <thead>
+        <tr>
+            {% for col in header %}<th scope="col" name="{{col.field}}">{{col.label}}</th>{% endfor %}
+        </tr>
+   </thead>
+   <tbody>
+        {% for item in data %}
+            <tr>
+                {% for col in item %}<td class="align-middle" {% if col.rs > 1 %} rowspan="{{col.rs}}"{% endif %}>{{col.txt}}</td>{% endfor %}
+            </tr>
+        {% endfor %}
+   </tbody>
+</table>
+
+
